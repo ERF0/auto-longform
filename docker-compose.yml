@@ -1,0 +1,15 @@
+services:
+  auto-long-form-content:
+    container_name: auto-long-form-content
+    build: .
+    volumes:
+      - ./output:/app/output
+      - ./secondary_video:/app/secondary_video
+      - ./music:/app/music
+      - ./credentials:/app/credentials
+    env_file:
+      - .env
+    environment:
+      - RUN_ONCE=true
+      - VIDEO_COUNT=1
+      - NO_UPLOAD=true
